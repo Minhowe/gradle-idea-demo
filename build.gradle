@@ -1,0 +1,21 @@
+group 'gradle-idea-demo1'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // 导入本地的依赖包
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    // 从maven仓库导入依赖
+    compile 'org.eclipse.jetty.aggregate:jetty-webapp:7.6.15.v20140411'
+
+}
